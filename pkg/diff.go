@@ -5,9 +5,9 @@ import (
 	"bytes"
 	"io"
 	"log"
+	"reflect"
 	"sort"
 	"strings"
-	"reflect"
 
 	"github.com/nsf/jsondiff"
 )
@@ -44,21 +44,21 @@ func Diff(a, b string) []string {
 			log.Printf("Error finding difference in json strings %v", err)
 		}
 		if strings.HasPrefix(stringRead, NEW_PROPERTY_INDICATOR) {
-		  tmp := strings.Split(strings.TrimPrefix(stringRead, NEW_PROPERTY_INDICATOR), "\"")
+			tmp := strings.Split(strings.TrimPrefix(stringRead, NEW_PROPERTY_INDICATOR), "\"")
 			currentProperty = tmp[0]
 		}
 		if strings.Contains(stringRead, CHANGE_PATTERN) {
 			diffMap[currentProperty] = true
-		}		
+		}
 	}
 	return mapToStringArray(reflect.ValueOf(diffMap).MapKeys())
 }
 
 func mapToStringArray(keys []reflect.Value) []string {
-    strkeys := make([]string, len(keys))
-    for i := 0; i < len(keys); i++ {
-        strkeys[i] = keys[i].String()
-    }
-    sort.Strings(strkeys)
-    return strkeys
+	strkeys := make([]string, len(keys))
+	for i := 0; i < len(keys); i++ {
+		strkeys[i] = keys[i].String()
+	}
+	sort.Strings(strkeys)
+	return strkeys
 }
