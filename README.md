@@ -1,5 +1,7 @@
 # JSON Packages
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/itsmurugappan/json)](https://goreportcard.com/report/github.com/itsmurugappan/json)
+
 Useful JSON go packages
 
 ```
