@@ -15,7 +15,7 @@ import (
 var ErrInvalidInput = errors.New("input must be a struct pointer")
 var validate = validator.New()
 
-// JsonToSpec, Transforms the byte array to the given struct
+// JsonToSpec transforms the byte array to the given struct
 func JsonToSpec(data []byte, spec interface{}) error {
 	s := reflect.ValueOf(spec)
 	if s.Kind() != reflect.Ptr {
@@ -32,13 +32,13 @@ func JsonToSpec(data []byte, spec interface{}) error {
 	return nil
 }
 
-// ParseReqBodyToSpec, parses HTTP request body into the given struct
+// ParseReqBodyToSpec parses HTTP request body into the given struct
 func ParseReqBodyToSpec(r *http.Request, spec interface{}) error {
 	body, _ := ioutil.ReadAll(r.Body)
 	return JsonToSpec(body, spec)
 }
 
-// ParseAndValidate, Parses the HTTP request body into struct
+// ParseAndValidate parses the HTTP request body into struct
 // and Validate based on struct tags
 func ParseAndValidate(r *http.Request, spec interface{}) error {
 	if err := ParseReqBodyToSpec(r, spec); err != nil {
