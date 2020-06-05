@@ -13,10 +13,13 @@ import (
 )
 
 const (
-	NEW_PROPERTY_INDICATOR = "    \""
-	CHANGE_PATTERN         = "changed"
+	new_property_indicator = "    \""
+
+	change_pattern = "changed"
 )
 
+// Return the changed/added/removed
+// top level json string properties
 func Diff(a, b string) []string {
 	opts := jsondiff.Options{
 		Added:            jsondiff.Tag{Begin: "{\"changed\":[", End: "]}"},
@@ -43,11 +46,11 @@ func Diff(a, b string) []string {
 			}
 			log.Printf("Error finding difference in json strings %v", err)
 		}
-		if strings.HasPrefix(stringRead, NEW_PROPERTY_INDICATOR) {
-			tmp := strings.Split(strings.TrimPrefix(stringRead, NEW_PROPERTY_INDICATOR), "\"")
+		if strings.HasPrefix(stringRead, new_property_indicator) {
+			tmp := strings.Split(strings.TrimPrefix(stringRead, new_property_indicator), "\"")
 			currentProperty = tmp[0]
 		}
-		if strings.Contains(stringRead, CHANGE_PATTERN) {
+		if strings.Contains(stringRead, change_pattern) {
 			diffMap[currentProperty] = true
 		}
 	}
