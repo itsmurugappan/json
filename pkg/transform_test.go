@@ -5,8 +5,9 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"gotest.tools/assert"
 	"testing"
+
+	"gotest.tools/assert"
 )
 
 type simple struct {

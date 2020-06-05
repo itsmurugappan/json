@@ -1,8 +1,9 @@
 package pkg
 
 import (
-	"gotest.tools/assert"
 	"testing"
+
+	"gotest.tools/assert"
 )
 
 func TestJSONDiff(t *testing.T) {
