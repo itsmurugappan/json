@@ -77,7 +77,7 @@ func TestObjectDiff(t *testing.T) {
 		"c.a",
 		nil,
 	}, {
-		"second match",
+		"second level match",
 		`{"a": "1", "b": [{"a": "2"},{"a": "3"}], "c": {"a": {"ab": 1, "cd": 2}}}`,
 		`{"c": {"e": {"ab": 1, "cd": 2}, "b": "1"}, "a": "2", "b": [{"a": "2"},{"a": "3"}]}`,
 		"c.a",
