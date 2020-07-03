@@ -22,14 +22,7 @@ func JsonToSpec(data []byte, spec interface{}) error {
 		return ErrInvalidInput
 	}
 
-	t := reflect.TypeOf(spec)
-	new := reflect.New(t.Elem())
-	i := new.Interface()
-	json.Unmarshal(data, i)
-
-	s.Elem().Set((reflect.ValueOf(i)).Elem())
-
-	return nil
+	return json.Unmarshal(data, spec)
 }
 
 // ParseReqBodyToSpec parses HTTP request body into the given struct
