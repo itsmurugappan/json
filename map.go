@@ -7,7 +7,7 @@ import (
 )
 
 // SpecFromMap parses the given map into the spec
-func SpecFromMap(data map[string]interface{}, spec interface{}) error {
+func SpecFromMap(data map[string]string, spec interface{}) error {
 	if data == nil {
 		return fmt.Errorf("data is nil")
 	}
