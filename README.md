@@ -1,4 +1,4 @@
-# JSON Packages
+# Transformation Packages
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/itsmurugappan/json)](https://goreportcard.com/report/github.com/itsmurugappan/json)
 
@@ -17,7 +17,7 @@ Example
 ```
 import (
   "fmt"
-  json "github.com/itsmurugappan/json/pkg"
+  json "github.com/itsmurugappan/transform"
 )
 
 .....
@@ -37,7 +37,7 @@ fmt.Println(json.Diff(a,b))
 
 Parse and Validate a HTTP Request Body into the given json Struct
 
-[Example](./pkg/transform_test.go)
+[Example](./transform_test.go)
 
 
 #### Credits
