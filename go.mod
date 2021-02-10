@@ -1,4 +1,4 @@
-module github.com/itsmurugappan/json
+module github.com/itsmurugappan/transform
 
 go 1.15
 
